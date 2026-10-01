@@ -1,0 +1,19 @@
+name: Run PowerShell Script
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # ခလုတ်နှိပ်ပြီး ကိုယ်တိုင် မနူရယ် Run ချင်ရင် သုံးနိုင်ရန်
+
+jobs:
+  run-powershell:
+    runs-on: windows-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Run PowerShell Command
+      shell: pwsh
+      run: |
+        Write-Host "Hello from GitHub Actions PowerShell!"
+        Get-Date
